@@ -82,3 +82,17 @@ fun factorial(fn:Float?):Float?
     
 	return result
 }
+
+// Function to calculate the porcentage of a given number if number if not equal to null
+// returns null otherwise
+fun percentage(pn:Float?):Float?
+{
+    var result:Float? = null
+
+    if(checkNumbers(pn))
+    {
+        result = pn!!.toFloat() / 100f
+    }
+
+    return result
+}
