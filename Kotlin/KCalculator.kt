@@ -66,3 +66,19 @@ fun divide(sn1:Float?, sn2:Float?):Float?
     
 	return result
 }
+
+// Calculate the factorial of a number
+// If the number is not equal to null and positive, return the calculation of factorial
+// return null otherwise 
+fun factorial(fn:Float?):Float?
+{
+    var result:Float? = null
+    
+    // Recursive factorial version
+   	if(checkNumbers(fn) && fn!! > 1f)
+    {
+    	result = (fn.toInt() * factorial(fn-1f)!!.toInt()).toFloat()
+    } 
+    
+	return result
+}
