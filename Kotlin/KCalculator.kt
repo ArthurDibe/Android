@@ -17,3 +17,15 @@ fun checkNumbers(cn1:Float?, cn2:Float?=0f):Boolean
     
     return isNotNull
 }
+
+// Return the sum of 2 numbers if both numbers are not null
+// Return null otherwise
+fun sum(sn1:Float?, sn2:Float?):Float?
+{
+    var result:Float? = null
+    
+   	if(checkNumbers(sn1, sn2))
+        result = (sn1?: -1f) + (sn2?: -1f)
+    
+	return result
+}
