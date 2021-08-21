@@ -97,3 +97,22 @@ fun percentage(pn:Float?, total:Float?):Float?
 
     return result
 }
+
+// Function that calculates the power of a number given an expoent
+// return the power if the number and the expoent are not null
+// return null otherwise
+fun power(pn:Float?, expo:Float?):Float?
+{
+    var result:Float = 1f
+
+    
+   	if(checkNumbers(pn, expo) && expo!! > 0f)
+    {
+        for(i in 1..expo.toInt()) {
+            result *= pn!!.toFloat()
+        }
+    	    
+    } else return null
+
+    return result
+}
