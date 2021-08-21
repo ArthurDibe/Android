@@ -41,3 +41,16 @@ fun subtract(sn1:Float?, sn2:Float?):Float?
    
 	return result
 }
+
+// Return the multiplication of 2 numbers if both numbers are not null
+// Return null otherwise
+fun multiply(sn1:Float?, sn2:Float?):Float?
+{
+    var result:Float? = null
+    
+   	if(checkNumbers(sn1, sn2))
+        result = (sn1?: -1f) * (sn2?: -1f)
+  
+    
+	return result
+}
