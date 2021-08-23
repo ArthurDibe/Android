@@ -48,4 +48,9 @@ fun main()
     }
 
     println(account1)
+
+    // ------------ Analyst Employee Testing
+    val employee1 = Analyst("Joao Evangelhista", "333222444", 34.5)
+    PrintEmployeeReport.display(employee1)
+
 }
