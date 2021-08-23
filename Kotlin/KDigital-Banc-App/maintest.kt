@@ -53,4 +53,11 @@ fun main()
     val employee1 = Analyst("Joao Evangelhista", "333222444", 34.5)
     PrintEmployeeReport.display(employee1)
 
+    // ------------ Manager Employee Testing
+    val employee2 = Manager("Maria do Carmo", "8888777765665", 55.99, "my123password")
+    println("----------------------------")
+    PrintEmployeeReport.display(employee2)
+    print("Login: ")
+    Authentication().tryLogin(employee2)   // OK
+    
 }
