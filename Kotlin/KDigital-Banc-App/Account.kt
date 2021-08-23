@@ -1,3 +1,5 @@
+import java.lang.IllegalArgumentException
+
 class Account(
     val ag:String, 
     val number:String 
@@ -15,11 +17,8 @@ class Account(
     }
 
     override fun withdraw(value: Double){
-        if(this.amount_ < value) {
-            println("WARNING: You have not enough founds to take money out")
-        }
-        else {
-            this.amount_ -= value  
-        }
+        if(this.amount_ < value) throw IllegalArgumentException("WARNING: You have not enough founds to take money out")
+
+        this.amount_ -= value  
     }
 }
