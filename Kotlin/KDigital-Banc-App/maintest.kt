@@ -1,8 +1,9 @@
+import Loggable.kt
+import ClientType.kt
 import Bank.kt
 import Client.kt
-import ClientType.kt
 import Employee.kt
-import Loggable.kt
+import Account.kt
 
 class PrintEmployeeReport{
     companion object {
@@ -30,4 +31,21 @@ fun main()
     val client1 = Client("José Carlos Mata", "9999111122223333", ClientType.PA, "my123password")
     println(client1.toString())
     Authentication().tryLogin(client1)    // OK to pass client1!
+
+    // ---------- Account Testing
+    val account1 = Account(
+        number = "13444-5",
+        ag = "0857"
+    )
+
+    println(account1)
+
+    try {
+        account1.withdraw(10.0)
+    } catch (e: Exception) {
+        println(e.message)
+        account1.deposit(150.0)
+    }
+
+    println(account1)
 }
