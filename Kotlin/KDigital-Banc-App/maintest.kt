@@ -1,9 +1,12 @@
 import Loggable.kt
 import ClientType.kt
+import Person.kt
 import Bank.kt
 import Client.kt
 import Employee.kt
 import Account.kt
+import Manager.kt
+import Analyst.kt
 
 class PrintEmployeeReport{
     companion object {
@@ -59,5 +62,5 @@ fun main()
     PrintEmployeeReport.display(employee2)
     print("Login: ")
     Authentication().tryLogin(employee2)   // OK
-    
+
 }
