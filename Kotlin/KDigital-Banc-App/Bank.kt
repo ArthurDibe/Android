@@ -1,6 +1,6 @@
 data class Bank(
-    val lname:String, 
-    val lnumber:Int
+    val name:String, 
+    val number:Int
 ){
     fun bankInfo() = "$name_ | $number_"
 }
