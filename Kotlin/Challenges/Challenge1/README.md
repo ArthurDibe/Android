@@ -1,5 +1,3 @@
-# Kotlin Challenges
-
 ## Challenge 1 - Description  
 Develop a program capable of reading an integer value N.<br>
 N * 2 lines of output will be presented in the execution of the program, following the logic of the example below.<br>
