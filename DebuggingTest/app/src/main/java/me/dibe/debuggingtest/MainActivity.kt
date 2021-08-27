@@ -7,6 +7,7 @@ import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
 import java.lang.NullPointerException
+import java.lang.NumberFormatException
 
 
 class MainActivity : AppCompatActivity() {
@@ -16,9 +17,11 @@ class MainActivity : AppCompatActivity() {
 
         val lblDebug = lblDebug
         val inputName = inputYourName
+        val inputAge = inputAge
         val btnClick = btnClicked
         val btnUnclick = btnUnclicked
         val btnSendText = btnSendText
+        val btnSendAge = btnSendAge
         var count: Int = 0
 
         btnClick.setOnClickListener {
@@ -44,6 +47,18 @@ class MainActivity : AppCompatActivity() {
                 lblDebug.setText(inputName.text.toString())
             }
 
+        }
+
+        btnSendAge.setOnClickListener {
+            lblDebug.setTextColor(Color.BLUE)
+
+            try {
+                val age:Int = inputAge.text.toString().toInt()
+            }
+            catch(e: NumberFormatException) {
+                Log.e("Input Text", e.cause.toString() + " -> Missing to enter a number!!!")
+                lblDebug.setText("WHAT NUMBER?")
+            }
         }
 
     }
