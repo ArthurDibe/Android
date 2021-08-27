@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import kotlinx.android.synthetic.main.activity_main.*
+import java.lang.Exception
+import java.lang.NullPointerException
 
 
 class MainActivity : AppCompatActivity() {
@@ -13,8 +15,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val lblDebug = lblDebug
+        val inputName = inputYourName
         val btnClick = btnClicked
         val btnUnclick = btnUnclicked
+        val btnSendText = btnSendText
         var count: Int = 0
 
         btnClick.setOnClickListener {
@@ -28,5 +32,19 @@ class MainActivity : AppCompatActivity() {
             lblDebug.setText((--count).toString())
             Log.e("unCLick", "OOOPA!!! You clicked on Unclick Button!!!!!")
         }
+
+        btnSendText.setOnClickListener {
+
+            lblDebug.setTextColor(Color.MAGENTA)
+            if(inputName.text.toString().isEmpty())
+            {
+                lblDebug.setText("WHO ARE YOU?")
+            }
+            else {
+                lblDebug.setText(inputName.text.toString())
+            }
+
+        }
+
     }
 }
