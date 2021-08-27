@@ -47,11 +47,9 @@
         android:id="@+id/btnSendText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="53dp"
         android:text="@string/send_text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.03"
         app:layout_constraintStart_toEndOf="@+id/inputYourName"
         app:layout_constraintTop_toBottomOf="@+id/btnClicked" />
 
@@ -59,12 +57,35 @@
         android:id="@+id/inputYourName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="55dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
         android:hint="Type your name ..."
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnClicked" />
+
+    <EditText
+        android:id="@+id/inputAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:ems="10"
+        android:hint="Type your age ..."
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputYourName" />
+
+    <Button
+        android:id="@+id/btnSendAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#03A9F4"
+        android:text="Send Age"
+        app:layout_constraintStart_toEndOf="@+id/inputAge"
+        app:layout_constraintTop_toBottomOf="@+id/btnSendText" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
