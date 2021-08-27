@@ -2,5 +2,6 @@
     <string name="app_name">DebuggingTest</string>
     <string name="click_name">Add Clicks</string>
     <string name="unclick_name">Remove Clicks</string>
+    <string name="send_text">Send Text</string>
     <string name="top_label">Hello Debugging World!</string>
 </resources>
