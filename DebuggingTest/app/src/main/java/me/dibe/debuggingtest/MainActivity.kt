@@ -54,6 +54,7 @@ class MainActivity : AppCompatActivity() {
 
             try {
                 val age:Int = inputAge.text.toString().toInt()
+                lblDebug.setText(age.toString())
             }
             catch(e: NumberFormatException) {
                 Log.e("Input Text", e.cause.toString() + " -> Missing to enter a number!!!")
