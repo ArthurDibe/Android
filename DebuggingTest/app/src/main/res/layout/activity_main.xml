@@ -7,12 +7,35 @@
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/lblDebug"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        android:text="@string/top_label"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.105" />
+
+    <Button
+        android:id="@+id/btnClicked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:text="@string/click_name"
+        app:layout_constraintTop_toBottomOf="@+id/lblDebug"
+        tools:layout_editor_absoluteX="37dp"
+        android:backgroundTint="@color/add_clicks"/>
+
+    <Button
+        android:id="@+id/btnUnclicked"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:backgroundTint="@color/remove_clicks"
+        android:text="@string/unclick_name"
+        app:layout_constraintTop_toBottomOf="@+id/lblDebug"
+        tools:layout_editor_absoluteX="255dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
