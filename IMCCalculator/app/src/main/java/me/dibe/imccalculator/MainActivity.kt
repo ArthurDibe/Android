@@ -30,4 +30,9 @@ class MainActivity : AppCompatActivity() {
         super.onRestart()
         Log.w("LIFE CYCLE", "RESTART - App is being Restarted !!!")
     }
+
+    override fun onDestroy(){
+        super.onDestroy()
+        Log.w("LIFE CYCLE", "DESTROY - App is being shut down completely .... =(")
+    }
 }
