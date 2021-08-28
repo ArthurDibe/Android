@@ -15,4 +15,9 @@ class MainActivity : AppCompatActivity() {
         super.onStart()
         Log.w("LIFE CYCLE", "START - Screen is being started with the components!!!")
     }
+
+    override fun onResume(){
+        super.onResume()
+        Log.w("LIFE CYCLE", "RESUME - Screen is being resumed and ready to be interactive! =D")
+    }
 }
