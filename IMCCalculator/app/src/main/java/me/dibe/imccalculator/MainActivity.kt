@@ -10,4 +10,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.w("LIFE CYCLE", "CREATE - Screen is being created!!!")
     }
+
+    override fun onStart(){
+        super.onStart()
+        Log.w("LIFE CYCLE", "START - Screen is being started with the components!!!")
+    }
 }
