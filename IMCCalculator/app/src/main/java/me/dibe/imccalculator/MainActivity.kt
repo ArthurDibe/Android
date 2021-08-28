@@ -20,4 +20,9 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         Log.w("LIFE CYCLE", "RESUME - Screen is being resumed and ready to be interactive! =D")
     }
+
+    override fun onPause(){
+        super.onPause()
+        Log.w("LIFE CYCLE", "PAUSE - Screen is being minimized... ")
+    }
 }
