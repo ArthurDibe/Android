@@ -25,4 +25,9 @@ class MainActivity : AppCompatActivity() {
         super.onPause()
         Log.w("LIFE CYCLE", "PAUSE - Screen is being minimized... ")
     }
+
+    override fun onRestart(){
+        super.onRestart()
+        Log.w("LIFE CYCLE", "RESTART - App is being Restarted !!!")
+    }
 }
