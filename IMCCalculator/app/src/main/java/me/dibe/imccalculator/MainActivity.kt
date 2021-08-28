@@ -8,12 +8,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        Log.w("LIFE CYCLE", "CREATE - Screen is being created!!!")
+        Log.w("LIFE CYCLE", "CREATE - Screen is being created (no components yet) !")
     }
 
     override fun onStart(){
         super.onStart()
-        Log.w("LIFE CYCLE", "START - Screen is being started with the components!!!")
+        Log.w("LIFE CYCLE", "START - Screen is being started with the components and it is visible!!!")
     }
 
     override fun onResume(){
@@ -23,7 +23,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause(){
         super.onPause()
-        Log.w("LIFE CYCLE", "PAUSE - Screen is being minimized... ")
+        Log.w("LIFE CYCLE", "PAUSE - Screen is being out of focus and you cannot interact with it... ")
+    }
+
+    override fun onStop(){
+        super.onStop()
+        Log.w("LIFE CYCLE", "STOP - Screen is not visible but it still exists, because it was left on background...")
     }
 
     override fun onRestart(){
