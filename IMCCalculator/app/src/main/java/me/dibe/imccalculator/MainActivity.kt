@@ -3,6 +3,7 @@ package me.dibe.imccalculator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.core.widget.doOnTextChanged
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DecimalFormat
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity()
             var resultIMC = (lweight / (lheight * lheight))
 
             result.text = "Your IMC ${String.format("%.2f", resultIMC)}"
+            result.visibility = View.VISIBLE
         }
     }
 
