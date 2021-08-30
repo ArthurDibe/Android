@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.DecimalFormat
@@ -40,10 +41,16 @@ class MainActivity : AppCompatActivity()
         val lheight = pheight.toFloatOrNull()
         val lweight = pweight.toFloatOrNull()
 
-        if(lheight != null && lweight != null){
+        if(lweight == null) {
+            Toast.makeText(applicationContext, "You must provide WEIGHT", Toast.LENGTH_SHORT).show()
+        }
+        else if(lheight == null) {
+            Toast.makeText(applicationContext, "You must provide HEIGHT", Toast.LENGTH_SHORT).show()
+        }
+        else {
             var resultIMC = (lweight / (lheight * lheight))
-
-            result.text = "Your IMC ${String.format("%.2f", resultIMC)}"
+            val message = "Your IMC ${String.format("%.2f", resultIMC)}"
+            result.text = message
             result.visibility = View.VISIBLE
         }
     }
