@@ -1,4 +1,7 @@
 package me.dibe.recyclerviewapp
 
-class Contact {
-}
+data class Contact (
+    val imageResource: Int,
+    val name: String,
+    val phone: String
+)
