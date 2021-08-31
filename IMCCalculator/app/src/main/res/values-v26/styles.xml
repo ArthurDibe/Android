@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="input_info">
+        <item name="android:inputType">numberDecimal</item>
+        <item name="android:layout_marginTop">30dp</item>
+        <item name="android:layout_marginBottom">5dp</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:textSize">21sp</item>
+        <item name="android:autofillHints">#78909C</item>
+    </style>
+</resources>
