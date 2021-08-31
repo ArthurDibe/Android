@@ -1,5 +1,6 @@
 package me.dibe.imccalculator
 
+import android.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,7 +8,6 @@ import android.view.View
 import android.widget.Toast
 import androidx.core.widget.doOnTextChanged
 import kotlinx.android.synthetic.main.activity_main.*
-import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity()
 {
@@ -19,6 +19,25 @@ class MainActivity : AppCompatActivity()
         setContentView(R.layout.activity_main)
         Log.w("LIFE CYCLE", "CREATE - Screen is being created (no components yet) !")
         setListeners()
+    }
+
+    private fun showDefaultDialog(result:String) {
+        val alertDialog = AlertDialog.Builder(this)
+
+        alertDialog.apply {
+//            setIcon(R.drawable.ic_hello)
+            setTitle("IMC Result")
+            setMessage(result)
+//            setPositiveButton("Positive") { _, _ ->
+//                Toast.makeText(applicationContext, "Clicked Positive Button", Toast.LENGTH_SHORT).show()
+//            }
+//            setNegativeButton("Negative") { _, _ ->
+//                Toast.makeText(applicationContext, "Clicked Negative Button", Toast.LENGTH_SHORT).show()
+//            }
+            setNeutralButton("THANKS") { _, _ ->
+                Toast.makeText(applicationContext, "Amazing !", Toast.LENGTH_SHORT).show()
+            }
+        }.create().show()
     }
 
     private fun setListeners()
@@ -50,8 +69,9 @@ class MainActivity : AppCompatActivity()
         else {
             var resultIMC = (lweight / (lheight * lheight))
             val message = "Your IMC ${String.format("%.2f", resultIMC)}"
-            result.text = message
-            result.visibility = View.VISIBLE
+//            result.text = message
+//            result.visibility = View.VISIBLE
+            showDefaultDialog(message)
         }
     }
 
