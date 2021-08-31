@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IMC</string>
+    <string name="app_name">BMI</string>
     <string name="calculate_btn">Calculate</string>
     <string name="placeholder_weight">Weight in Kg (e.g: 65.4)</string>
     <string name="placeholder_height">Height in cm (e.g: 1.78)</string>
