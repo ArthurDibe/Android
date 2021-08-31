@@ -26,7 +26,7 @@ class MainActivity : AppCompatActivity()
 
         alertDialog.apply {
 //            setIcon(R.drawable.ic_hello)
-            setTitle("IMC Result")
+            setTitle("BMI Result")
             setMessage(result)
 //            setPositiveButton("Positive") { _, _ ->
 //                Toast.makeText(applicationContext, "Clicked Positive Button", Toast.LENGTH_SHORT).show()
@@ -68,7 +68,7 @@ class MainActivity : AppCompatActivity()
         }
         else {
             var resultIMC = (lweight / (lheight * lheight))
-            val message = "Your IMC ${String.format("%.2f", resultIMC)}"
+            val message = "Your BMI ${String.format("%.2f", resultIMC)}"
 //            result.text = message
 //            result.visibility = View.VISIBLE
             showDefaultDialog(message)
