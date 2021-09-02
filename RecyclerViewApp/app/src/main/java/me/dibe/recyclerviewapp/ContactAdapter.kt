@@ -29,9 +29,8 @@ class ContactAdapter(private val contactList: List<Contact>) : RecyclerView.Adap
         holder.contactPhone.text =  currentContact.phone
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    // This method is called to return the number of items in the list of the Adapter
+    override fun getItemCount(): Int = contactList.size
 
     class ContactViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val contactImage: ImageView = itemView.findViewById(R.id.contact_image) // itemView.contact_image
