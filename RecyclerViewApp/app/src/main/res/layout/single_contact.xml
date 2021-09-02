@@ -12,7 +12,7 @@
         android:padding="8dp">
 
         <ImageView
-            android:id="@+id/image_view"
+            android:id="@+id/contact_image"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/ic_android"
@@ -20,7 +20,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/text_view_1"
+            android:id="@+id/contact_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Line 1"
@@ -28,18 +28,18 @@
             android:textColor="@color/black"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/image_view"
+            app:layout_constraintStart_toEndOf="@id/contact_image"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/text_view_2"
+            android:id="@+id/contact_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
             android:layout_marginLeft="8dp"
             android:text="Line 2"
-            app:layout_constraintStart_toEndOf="@+id/image_view"
-            app:layout_constraintTop_toBottomOf="@+id/text_view_1" />
+            app:layout_constraintStart_toEndOf="@+id/contact_image"
+            app:layout_constraintTop_toBottomOf="@+id/contact_name" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
