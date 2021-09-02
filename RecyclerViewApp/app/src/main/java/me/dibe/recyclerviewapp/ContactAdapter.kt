@@ -18,8 +18,15 @@ class ContactAdapter(private val contactList: List<Contact>) : RecyclerView.Adap
         return ContactViewHolder(itemView)
     }
 
+    // This method is called to populate the data in each ViewHolder of each row (it will be called many times)
+    //      holder parameter -> it is one of the ViewHolder
+    //      position parameter -> the position of the item in the list of ViewHolder
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val currentContact = contactList[position]
+
+        holder.contactImage.setImageResource(currentContact.imageResource)
+        holder.contactName.text = currentContact.name
+        holder.contactPhone.text =  currentContact.phone
     }
 
     override fun getItemCount(): Int {
