@@ -2,6 +2,8 @@ package me.dibe.recyclerviewapp
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -9,6 +11,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val contactExampleList = generateDummyList(500)
+
+        recycler_view.adapter = ContactAdapter(contactExampleList)
+        recycler_view.layoutManager = LinearLayoutManager(this) // layoutManager is responsible to positioning the items in the recyclerView
+        recycler_view.setHasFixedSize(true) // This is a performance optimization
     }
 
     // This function generates dummy data, the user needs to pass the number of rows to be generated
