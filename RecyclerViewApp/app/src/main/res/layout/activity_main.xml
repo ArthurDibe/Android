@@ -8,18 +8,18 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
-        android:layout_width="412dp"
-        android:layout_height="676dp"
+        android:layout_width="410dp"
+        android:layout_height="475dp"
         android:clipToPadding="false"
         android:padding="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
         tools:listitem="@layout/single_contact" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/input_personName"
         android:layout_width="286dp"
         android:layout_height="53dp"
         android:ems="10"
@@ -28,6 +28,39 @@
         android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_personLastName"
+        android:layout_width="286dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:hint="Last Name"
+        android:inputType="textPersonName"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_personName" />
+
+    <EditText
+        android:id="@+id/input_personAge"
+        android:layout_width="286dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:hint="Age"
+        android:inputType="number"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_personLastName" />
+
+    <EditText
+        android:id="@+id/input_personPhone"
+        android:layout_width="286dp"
+        android:layout_height="53dp"
+        android:ems="10"
+        android:hint="Phone"
+        android:inputType="phone"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_personAge" />
 
     <Button
         android:id="@+id/btn_search"
@@ -39,8 +72,39 @@
         app:layout_constraintBottom_toTopOf="@+id/recycler_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/editTextTextPersonName"
+        app:layout_constraintStart_toEndOf="@+id/input_personName"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/btn_insert"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:text="INSERT"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_search" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="122dp"
+        android:layout_height="60dp"
+        android:backgroundTint="@android:color/holo_green_dark"
+        android:text="INSERT"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/btn_insert"
+        app:layout_constraintStart_toEndOf="@+id/input_personLastName"
+        app:layout_constraintTop_toBottomOf="@+id/btn_search" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="409dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="16dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/input_personPhone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
