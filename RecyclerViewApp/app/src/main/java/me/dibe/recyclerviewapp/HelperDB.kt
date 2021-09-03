@@ -10,13 +10,14 @@ class HelperDB (
 ) : SQLiteOpenHelper(context, DB_NAME, null, DB_VERSION) {
 
     companion object {
-        private val DB_NAME = "contato.db"
-        private val DB_VERSION = 1 // should change when there is a change in the database structure
+        private val DB_NAME = "contatos.db"
+        private val DB_VERSION = 4 // should change when there is a change in the database structure
     }
 
     val TABLE_NAME = "contatos"
     val DROP_TABLE = "DROP TABLE IF EXISTS $TABLE_NAME"
     val COLUMN_ID = "id"
+    val COLUMN_IMAGE = "image"
     val COLUMN_FNAME = "firstName"
     val COLUMN_LNAME = "lastName"
     val COLUMN_AGE = "age"
@@ -25,6 +26,7 @@ class HelperDB (
     val CREATE_TABLE =
         "CREATE TABLE $TABLE_NAME (" +
             "$COLUMN_ID INTEGER NOT NULL," +
+            "$COLUMN_IMAGE INTEGER NOT NULL," +
             "$COLUMN_FNAME TEXT NOT NULL," +
             "$COLUMN_LNAME TEXT NOT NULL," +
             "$COLUMN_AGE TEXT NOT NULL," +
@@ -52,19 +54,23 @@ class HelperDB (
         onCreate(db)
     }
 
-    fun findContacts(find: String):List<Contact>{
+    fun findAll():List<Contact>{
         val db:SQLiteDatabase = readableDatabase ?: return mutableListOf()
         var contactList:MutableList<Contact> = mutableListOf<Contact>()
 
         val sql = "SELECT * FROM $TABLE_NAME"
 
-        var cursor:Cursor = db.rawQuery(sql,null) ?: return mutableListOf()
-
+        var cursor:Cursor = db.rawQuery(sql,arrayOf()) ?: return mutableListOf()
+        if(cursor == null)
+        {
+            db.close()
+            return mutableListOf()
+        }
         while(cursor.moveToNext()){
-            var i = 0
+            var index = cursor.getInt(cursor.getColumnIndex(COLUMN_ID))
             var contact = Contact(
-                i++ % 3,
                 cursor.getInt(cursor.getColumnIndex(COLUMN_ID)),
+                index,
                 cursor.getString(cursor.getColumnIndex(COLUMN_FNAME)),
                 cursor.getString(cursor.getColumnIndex(COLUMN_LNAME)),
                 cursor.getInt(cursor.getColumnIndex(COLUMN_AGE)),
@@ -72,8 +78,45 @@ class HelperDB (
             )
             contactList.add(contact)
         }
-
+        db.close()
         return contactList
+    }
+
+    fun findContacts(find: String):List<Contact>{
+        val db:SQLiteDatabase = readableDatabase ?: return mutableListOf()
+        var contactList:MutableList<Contact> = mutableListOf<Contact>()
+
+        val sql = "SELECT * FROM $TABLE_NAME"
+
+        var cursor:Cursor = db.rawQuery(sql,arrayOf()) ?: return mutableListOf()
+        if(cursor == null)
+        {
+            db.close()
+            return mutableListOf()
+        }
+        while(cursor.moveToNext()){
+            var index = cursor.getInt(cursor.getColumnIndex(COLUMN_ID))
+            var contact = Contact(
+                cursor.getInt(cursor.getColumnIndex(COLUMN_ID)),
+                index,
+                cursor.getString(cursor.getColumnIndex(COLUMN_FNAME)),
+                cursor.getString(cursor.getColumnIndex(COLUMN_LNAME)),
+                cursor.getInt(cursor.getColumnIndex(COLUMN_AGE)),
+                cursor.getString(cursor.getColumnIndex(COLUMN_PHONE))
+            )
+            contactList.add(contact)
+        }
+        db.close()
+        return contactList
+    }
+
+    fun insertContact(contact: Contact) {
+        val db:SQLiteDatabase = writableDatabase ?: return
+        val sql = "INSERT INTO $TABLE_NAME ($COLUMN_IMAGE, $COLUMN_FNAME, $COLUMN_LNAME, $COLUMN_AGE, $COLUMN_PHONE) " +
+                "VALUES ( ${contact.imageResource}, '${contact.fname}' , '${contact.lname}', ${contact.age}, '${contact.phone}')"
+
+        db.execSQL(sql)
+        db.close()
     }
 
 }
