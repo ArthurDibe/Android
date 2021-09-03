@@ -23,9 +23,8 @@ class ContactAdapter(private val contactList: List<Contact>) : RecyclerView.Adap
     //      position parameter -> the position of the item in the list of ViewHolder
     override fun onBindViewHolder(holder: ContactViewHolder, position: Int) {
         val currentContact = contactList[position]
-
         holder.contactImage.setImageResource(currentContact.imageResource)
-        holder.contactName.text = currentContact.name
+        holder.contactName.text = currentContact.fname + currentContact.lname
         holder.contactPhone.text =  currentContact.phone
     }
 
