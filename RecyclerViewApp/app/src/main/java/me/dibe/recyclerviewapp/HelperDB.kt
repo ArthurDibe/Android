@@ -1,6 +1,7 @@
 package me.dibe.recyclerviewapp
 
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 
@@ -49,6 +50,30 @@ class HelperDB (
             db?.execSQL(DROP_TABLE)
         }
         onCreate(db)
+    }
+
+    fun findContacts(find: String):List<Contact>{
+        val db:SQLiteDatabase = readableDatabase ?: return mutableListOf()
+        var contactList:MutableList<Contact> = mutableListOf<Contact>()
+
+        val sql = "SELECT * FROM $TABLE_NAME"
+
+        var cursor:Cursor = db.rawQuery(sql,null) ?: return mutableListOf()
+
+        while(cursor.moveToNext()){
+            var i = 0
+            var contact = Contact(
+                i++ % 3,
+                cursor.getInt(cursor.getColumnIndex(COLUMN_ID)),
+                cursor.getString(cursor.getColumnIndex(COLUMN_FNAME)),
+                cursor.getString(cursor.getColumnIndex(COLUMN_LNAME)),
+                cursor.getInt(cursor.getColumnIndex(COLUMN_AGE)),
+                cursor.getString(cursor.getColumnIndex(COLUMN_PHONE))
+            )
+            contactList.add(contact)
+        }
+
+        return contactList
     }
 
 }
